@@ -1,0 +1,38 @@
+/* Write a program which accepts one number and position from user and on that bit. Return modified number.
+Input : 10 3
+Output : 14
+*/
+
+#include<iostream>
+using namespace std;
+
+typedef unsigned int UINT;
+
+UINT OnBit(UINT iNo, UINT ipos)
+{
+    UINT iMask = 1;
+    UINT iResult = 0;
+
+    iMask = iMask <<(ipos - 1);
+    iMask = iMask;
+    iResult = iNo ^ iMask;
+
+    return iResult;
+}
+
+int main()
+{
+    UINT iValue = 0, iLocation = 0, iRet = 0;
+
+    cout<<"Enter the value : ";
+    cin>>iValue;
+
+    cout<<"Enter the position : ";
+    cin>>iLocation;
+
+    iRet = OnBit(iValue, iLocation);
+
+    cout<<"Modified value is : "<<iRet<<"\n";
+
+    return 0;
+}
